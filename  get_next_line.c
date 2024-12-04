@@ -6,7 +6,7 @@
 /*   By: pauldepetrini <pauldepetrini@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:30:14 by pauldepetri       #+#    #+#             */
-/*   Updated: 2024/12/04 21:14:49 by pauldepetri      ###   ########.fr       */
+/*   Updated: 2024/12/04 21:53:02 by pauldepetri      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 char	*get_next_line(int fd)
 {
-	static char	buf[BUFFER_SIZE+1] = "\0";
+	static char	buf[BUFFER_SIZE + 1] = "\0";
 	int			i;
 	int			start_ope_bool;
-	int			end;
 
 	if (fd == -1)
-		return (1);
+		return (NULL);
 	i = 0;
 	if (buf[i] == '\0')
 	{
@@ -36,10 +35,11 @@ char	*get_next_line(int fd)
 	}
 	return (get_line(buf, i, end_lign(buf, i)));
 }
+#include <stdio.h>
 
 int	main(void)
 {
-	int fd = "text.txt";
-	printf("%s", get_next_line(open(fd)));
+	int fd ;
+    printf("%s", get_next_line(fd = open("./text.txt", O_RDONLY)));
 	close(fd);
 }

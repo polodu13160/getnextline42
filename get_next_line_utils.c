@@ -6,29 +6,12 @@
 /*   By: pauldepetrini <pauldepetrini@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 18:37:39 by pauldepetri       #+#    #+#             */
-/*   Updated: 2024/12/04 21:25:40 by pauldepetri      ###   ########.fr       */
+/*   Updated: 2024/12/04 21:54:05 by pauldepetri      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*get_first_line(char *buf, int i)
-{
-	int		j;
-	char	*lign_malloc;
-
-    if (i >= BUFFER_SIZE)
-
-	j = 0;
-	lign_malloc = malloc((i + 1) * sizeof(char));
-	while (j = !i)
-	{
-		lign_malloc[j] = buf[j];
-		j++;
-	}
-	lign_malloc[j] = '\0';
-	return (lign_malloc);
-}
 
 int	end_lign(char *buf, int i)
 {
