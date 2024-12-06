@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauldepetrini <pauldepetrini@student.42    +#+  +:+       +#+        */
+/*   By: pde-petr <pde-petr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:34:34 by pauldepetri       #+#    #+#             */
-/*   Updated: 2024/12/04 21:52:20 by pauldepetri      ###   ########.fr       */
+/*   Updated: 2024/12/05 22:16:28 by pde-petr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <unistd.h>
 
 char	*get_next_line(int fd);
-char	*get_line(char *buf, int i, int end);
-int		end_lign(char *buf, int i);
+char	*get_line(char *buf);
+int		end_line(char *buf);
 
 #endif
