@@ -6,7 +6,7 @@
 /*   By: pde-petr <pde-petr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:30:14 by pauldepetri       #+#    #+#             */
-/*   Updated: 2024/12/06 04:41:06 by pde-petr         ###   ########.fr       */
+/*   Updated: 2024/12/06 07:16:04 by pde-petr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ char	*get_next_line(int fd)
 	char		*malloc_tamp;
 
 	malloc_tamp = NULL;
-	i = 0;
-	while (buf[i] || read(fd, buf, BUFFER_SIZE) > 0)
+	i = size_char_in_text(buf, 127);
+	while ((buf[i] && buf[i] != 127) || read(fd, buf, BUFFER_SIZE) > 0)
 	{
 		i = size_char_in_text(buf, 127);
-		while (buf[i])
+		while (buf[i] && buf[i] != 127)
 		{
 			if (buf[i] == '\n')
 			{
@@ -39,23 +39,64 @@ char	*get_next_line(int fd)
 	}
 	return (malloc_tamp);
 }
-#include <stdio.h>
+
+// #include <fcntl.h>
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <string.h>
+// #include <unistd.h>
+
+// void	check(int condition)
+// {
+// 	if (!condition)
+// 	{
+// 		fprintf(stderr, "Test failed\n");
+// 		exit(EXIT_FAILURE);
+// 	}
+// }
+
+// void	gnl(int fd, char const *expectedReturn)
+// {
+// 	char	*gnlReturn;
+// 	int		i;
+
+// 	gnlReturn = get_next_line(fd);
+// 	if (expectedReturn == NULL)
+// 		check(gnlReturn == NULL);
+// 	else
+// 	{
+// 		printf("\nce que je renvoie	%s\n", gnlReturn);
+// 		printf("\nce que je dois renvoyer	%s\n", expectedReturn);
+// 		printf("d   %d", strcmp(gnlReturn, expectedReturn));
+// 		i = 0;
+// 		// while (gnlReturn[i] != 127)
+// 		// {
+// 		// 	i++;
+// 		// }
+// 		printf("\nici %c\n", gnlReturn[i - 1]);
+// 		check(!strcmp(gnlReturn, expectedReturn));
+// 	}
+// 	check(!strcmp(gnlReturn, expectedReturn));
+// 	free(gnlReturn);
+// }
 
 // int	main(void)
 // {
 // 	int fd;
-// 	char *str;
-// 	int i = 1;
 
 // 	fd = open("one_line_no_nl.txt", O_RDONLY);
-// 	str = get_next_line(fd);
-// 	while (str)
+// 	if (fd == -1)
 // 	{
-// 		printf("line %d : %s", i++, str);
-// 		free(str);
-// 		str = get_next_line(fd);
-// 		if (!str)
-// 			printf("\nEOF\n");
+// 		perror("Erreur lors de l'ouverture du fichier");
+// 		return (1);
 // 	}
+
+// 	// Test pour vérifier si la ligne lue est correcte
+// 	gnl(fd, "012345");
+// 	// Test pour vérifier qu'il n'y a plus de ligne à lire
+// 	gnl(fd, NULL);
+
 // 	close(fd);
+// 	printf("Tous les tests ont réussi.\n");
+// 	return (0);
 // }
