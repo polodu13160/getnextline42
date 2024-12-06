@@ -6,7 +6,7 @@
 /*   By: pde-petr <pde-petr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:30:14 by pauldepetri       #+#    #+#             */
-/*   Updated: 2024/12/06 07:16:04 by pde-petr         ###   ########.fr       */
+/*   Updated: 2024/12/06 12:19:31 by pde-petr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 char	*get_next_line(int fd)
 {
 	static char	buf[BUFFER_SIZE + 1] = "\0";
-	int			i;
+	size_t		i;
 	char		*malloc_tamp;
 
 	malloc_tamp = NULL;
 	i = size_char_in_text(buf, 127);
+	if (fd < 0 && BUFFER_SIZE <= 0)
+		return (NULL);
 	while ((buf[i] && buf[i] != 127) || read(fd, buf, BUFFER_SIZE) > 0)
 	{
 		i = size_char_in_text(buf, 127);
