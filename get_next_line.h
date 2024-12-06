@@ -6,7 +6,7 @@
 /*   By: pde-petr <pde-petr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:34:34 by pauldepetri       #+#    #+#             */
-/*   Updated: 2024/12/05 22:16:28 by pde-petr         ###   ########.fr       */
+/*   Updated: 2024/12/06 04:41:09 by pde-petr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <unistd.h>
 
 char	*get_next_line(int fd);
-char	*get_line(char *buf);
-int		end_line(char *buf);
+int		size_char_in_text(char *text, int ascii);
+char	*ft_charjoin(char *buf, char *malloc_tamp, int i);
 
 #endif
