@@ -6,7 +6,7 @@
 /*   By: pde-petr <pde-petr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:30:14 by pauldepetri       #+#    #+#             */
-/*   Updated: 2024/12/06 12:19:31 by pde-petr         ###   ########.fr       */
+/*   Updated: 2024/12/06 12:29:05 by pde-petr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ char	*get_next_line(int fd)
 // 	// Test pour vérifier si la ligne lue est correcte
 // 	gnl(fd, "012345");
 // 	// Test pour vérifier qu'il n'y a plus de ligne à lire
-// 	gnl(fd, NULL);
+// 	// gnl(fd, NULL);
 
 // 	close(fd);
 // 	printf("Tous les tests ont réussi.\n");
