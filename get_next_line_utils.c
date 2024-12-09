@@ -6,7 +6,7 @@
 /*   By: pde-petr <pde-petr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 18:37:39 by pauldepetri       #+#    #+#             */
-/*   Updated: 2024/12/09 21:30:21 by pde-petr         ###   ########.fr       */
+/*   Updated: 2024/12/09 21:46:10 by pde-petr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,16 @@ int	size_char_in_text(char *text, int ascii)
 	return (i);
 }
 
-char	*ft_charjoin(char *buf, char *malloc_tamp, size_t i)
+char	*ft_charjoin(char *buf, char *malloc_tamp, size_t i, size_t j)
 {
 	char	*malloc_join;
-	size_t	j;
 
-	j = 0;
 	malloc_join = NULL;
 	if (!malloc_tamp)
 		malloc_join = malloc(2);
 	else
-		malloc_join = malloc((size_char_in_text(malloc_tamp, 0) + 2) * sizeof(char));
+		malloc_join = malloc((size_char_in_text(malloc_tamp, 0) + 2)
+				* sizeof(char));
 	if (!malloc_join)
 	{
 		free(malloc_tamp);
@@ -74,7 +73,7 @@ char	*line_by_line(char *buf, size_t i, int fd, char *malloc_tamp)
 	i = size_char_in_text(buf, 127);
 	while (buf[i] && buf[i] != 127)
 	{
-		malloc_tamp = ft_charjoin(buf, malloc_tamp, i);
+		malloc_tamp = ft_charjoin(buf, malloc_tamp, i, 0);
 		if (malloc_tamp == NULL)
 			return (NULL);
 		if (buf[i++] == '\n')

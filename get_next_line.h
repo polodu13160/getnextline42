@@ -6,7 +6,7 @@
 /*   By: pde-petr <pde-petr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:34:34 by pauldepetri       #+#    #+#             */
-/*   Updated: 2024/12/09 21:10:32 by pde-petr         ###   ########.fr       */
+/*   Updated: 2024/12/09 21:46:21 by pde-petr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 char	*get_next_line(int fd);
 int		size_char_in_text(char *text, int ascii);
-char	*ft_charjoin(char *buf, char *malloc_tamp, size_t i);
+char	*ft_charjoin(char *buf, char *malloc_tamp, size_t i, size_t j);
 char	*line_by_line(char *buf, size_t i, int fd, char *malloc_tamp);
 
 #endif
