@@ -6,7 +6,7 @@
 /*   By: pde-petr <pde-petr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 18:37:39 by pauldepetri       #+#    #+#             */
-/*   Updated: 2024/12/09 21:11:03 by pde-petr         ###   ########.fr       */
+/*   Updated: 2024/12/09 21:30:21 by pde-petr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_charjoin(char *buf, char *malloc_tamp, size_t i)
 	if (!malloc_tamp)
 		malloc_join = malloc(2);
 	else
-		malloc_join = malloc(size_char_in_text(malloc_tamp, 0) + 2);
+		malloc_join = malloc((size_char_in_text(malloc_tamp, 0) + 2) * sizeof(char));
 	if (!malloc_join)
 	{
 		free(malloc_tamp);
