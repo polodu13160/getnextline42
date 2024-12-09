@@ -6,7 +6,7 @@
 /*   By: pde-petr <pde-petr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 18:37:39 by pauldepetri       #+#    #+#             */
-/*   Updated: 2024/12/06 12:24:52 by pde-petr         ###   ########.fr       */
+/*   Updated: 2024/12/09 20:00:36 by pde-petr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	size_char_in_text(char *text, int ascii)
 char	*ft_charjoin(char *buf, char *malloc_tamp, size_t i)
 {
 	char	*malloc_join;
-	size_t		j;
+	size_t	j;
 
 	j = 0;
 	malloc_join = NULL;
@@ -50,7 +50,8 @@ char	*ft_charjoin(char *buf, char *malloc_tamp, size_t i)
 		j++;
 	}
 	malloc_join[j++] = buf[i];
-	buf[i] = 127;
+	if (buf[i] != '\n')
+		buf[i] = 127;
 	malloc_join[j] = '\0';
 	free(malloc_tamp);
 	return (malloc_join);
