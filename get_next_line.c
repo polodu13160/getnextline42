@@ -6,40 +6,11 @@
 /*   By: pde-petr <pde-petr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:30:14 by pauldepetri       #+#    #+#             */
-/*   Updated: 2024/12/09 21:08:58 by pde-petr         ###   ########.fr       */
+/*   Updated: 2024/12/09 21:10:50 by pde-petr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-char	*line_by_line(char *buf, size_t i, int fd, char *malloc_tamp)
-{
-	int	rd;
-
-	rd = -2;
-	if (!buf[i])
-		rd = read(fd, buf, BUFFER_SIZE);
-	if (rd == -1)
-	{
-		free(malloc_tamp);
-		return (NULL);
-	}
-	if (rd == 0)
-		return (malloc_tamp);
-	i = size_char_in_text(buf, 127);
-	while (buf[i] && buf[i] != 127)
-	{
-		malloc_tamp = ft_charjoin(buf, malloc_tamp, i);
-		if (malloc_tamp == NULL)
-			return (NULL);
-		if (buf[i++] == '\n')
-		{
-			buf[--i] = 127;
-			return (malloc_tamp);
-		}
-	}
-	return (line_by_line(buf, i, fd, malloc_tamp));
-}
 
 char	*get_next_line(int fd)
 {
@@ -84,7 +55,6 @@ char	*get_next_line(int fd)
 // 		free(line);
 // 	}
 // 	free(line);
-
 // 	close(fd);
 // 	return (0);
 // }
